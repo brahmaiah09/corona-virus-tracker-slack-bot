@@ -72,6 +72,10 @@ public class Attachment {
         markdownIn = new ArrayList<>();
     }
 
+    public void addField(Field field) {
+        fields.add(field);
+    }
+
     public void addAction(Action action) {
         actions.add(action);
     }
