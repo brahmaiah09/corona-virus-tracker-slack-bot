@@ -31,12 +31,12 @@ public class SlackService {
             case "/corona":
                 List<Attachment> attachments;
                 if (slackRequest.getText() != null && !slackRequest.getText().isEmpty()) {
-                    String countryName = slackRequest.getText().trim();
+                    String countryName = slackRequest.getText().trim().toLowerCase();
                     attachments = getCountryResult(countryName);
                     if (attachments.isEmpty()) {
                         return new SlackResponse("No information found for given country name!", "ephemeral");
                     }
-                    slackResponse.setText(String.format("COVID-19 CORONAVIRUS REPORT FOR *%s*", countryName));
+                    slackResponse.setText(String.format("COVID-19 CORONAVIRUS REPORT FOR *%s*", countryName.toUpperCase()));
                 } else {
                     attachments = getTotalResult();
                     if (attachments.isEmpty()) {

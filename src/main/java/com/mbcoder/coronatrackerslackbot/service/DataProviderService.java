@@ -43,12 +43,12 @@ public class DataProviderService {
 
     private void indexData(List<WorldometerData> worldometerDataList, List<JohnsHopkinsCSSEData> johnsHopkinsCSSEDataList) {
         worldometerDataList.stream()
-                .filter(data -> worldometerDataMap.get(data.getCountry()) == null || worldometerDataMap.get(data.getCountry()).getCases() < data.getCases())
-                .forEach(data -> worldometerDataMap.put(data.getCountry(), data));
+                .filter(data -> worldometerDataMap.get(data.getCountry().toLowerCase()) == null || worldometerDataMap.get(data.getCountry().toLowerCase()).getCases() < data.getCases())
+                .forEach(data -> worldometerDataMap.put(data.getCountry().toLowerCase(), data));
 
         johnsHopkinsCSSEDataList.stream()
-                .filter(data -> johnsHopkinsCSSEDataMap.get(data.getCountry()) == null || johnsHopkinsCSSEDataMap.get(data.getCountry()).getCases() < data.getCases())
-                .forEach(data -> johnsHopkinsCSSEDataMap.put(data.getCountry(), data));
+                .filter(data -> johnsHopkinsCSSEDataMap.get(data.getCountry().toLowerCase()) == null || johnsHopkinsCSSEDataMap.get(data.getCountry().toLowerCase()).getCases() < data.getCases())
+                .forEach(data -> johnsHopkinsCSSEDataMap.put(data.getCountry().toLowerCase(), data));
     }
 
     public WorldometerData getCountryData(String country) {
