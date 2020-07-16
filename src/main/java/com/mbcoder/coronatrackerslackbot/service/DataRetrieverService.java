@@ -14,7 +14,7 @@ import java.util.Arrays;
 @Service
 public class DataRetrieverService {
 
-    private static final String BASE_URL = "https://corona.lmao.ninja";
+    private static final String BASE_URL = "https://corona.lmao.ninja/v3/covid-19";
     private static final String ALL_URL = "/all";
     private static final String COUNTRIES_URL = "/countries";
     private static final String JHUCSSE_URL = "/jhucsse";
